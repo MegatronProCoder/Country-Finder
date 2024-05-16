@@ -1,0 +1,296 @@
+:root{
+   
+    --clr-text: hsl(217, 38%, 75%);;
+    --clr-text-body:hsl(106, 32%, 100%);
+    --clr-bg: hsl(217, 51%, 12%);
+    --clr-primary: hsl(217, 38%, 15%);
+    --clr-secondary: hsl(217, 38%, 20%);
+    --clr-accent: hsl(206, 55%, 51%);
+    --clr-accent-alpha-50 :hsla(206, 56%, 50%, 0.909);
+
+    /* font size */
+    --fs-300: clamp(0.6667rem, 0.6029rem + 0.3188vi, 0.85rem);
+    --fs-400: clamp(0.75rem, 0.6413rem + 0.5435vi, 1.0625rem);
+    --fs-500: clamp(0.8438rem, 0.6753rem + 0.8424vi, 1.3281rem);
+    --fs-600: clamp(0.9492rem, 0.7019rem + 1.2364vi, 1.6602rem);
+    --fs-700: clamp(1.0679rem, 0.7175rem + 1.7519vi, 2.0752rem);
+    --fs-800: clamp(1.2014rem, 0.717rem + 2.422vi, 2.594rem);
+    --fs-900: clamp(1.3515rem, 0.6938rem + 3.2886vi, 3.2425rem);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.light-theme{
+    --clr-text: hsl(217, 38%, 25%);;
+    --clr-text-body:hsl(106, 32%, 0%);
+    --clr-bg: hsl(217, 51%, 88%);
+    --clr-primary: hsl(217, 38%, 85%);
+    --clr-secondary: hsl(217, 38%, 80%);
+    --clr-accent: hsl(206, 55%, 49%);
+    --clr-accent-alpha-50 :hsla(206, 56%, 50%, 0.909);
+}
+body{
+    background-color: var(--clr-bg);
+    color: var(--clr-text-body);
+    font-size: var(--fs-400);
+}
+
+img{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+}
+input{
+    border: none;
+    outline: none;
+    color: inherit;
+    background-color: inherit;
+}
+ul{
+    padding: 0;
+    list-style: none;
+}
+b{
+    color: var(--clr-accent-alpha-50);
+}
+
+h2{
+    font-size: var(--fs-700);
+}
+h3{
+    font-size: var(--fs-500);
+}
+.capitalize{
+    text-transform: capitalize;
+}
+/* header styling */
+header{
+    padding: 1.5em 2em;
+    box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.12);
+    background-color: var(--clr-primary);
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:1100px;
+    margin-inline: auto;
+    gap: 0px;
+}
+.title{
+    font-size: var(--fs-800);
+}
+.theme-button-container{
+    cursor: pointer;
+}
+
+@media (min-width:400px){
+    .theme-button-container{
+        background-color: var(--clr-accent);
+        padding: 0.8em 1.3em;
+        border-radius: 1.3em;
+    }  
+}
+
+/* main section */
+main{
+    /* for header and main to be in same alignment */
+    /* header also has padding inline of 2em */
+    padding-inline: 2em;
+    max-width:1100px;
+    margin-inline: auto;
+}
+.input-filter-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-block: 2.2rem;
+
+}
+/* search */
+.input-container{
+    max-width: 400px;
+    flex-grow: 1;
+    background-color: var(--clr-primary);
+    padding-inline: 1.2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+.input-container>input{
+    width: 90%;
+    padding-block: 0.8rem; 
+    
+}
+/* filter  */
+.filter{
+    width: 180px;
+    position: relative;
+    font-size: var(--fs-300);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+.filter-by-region{
+    background-color: var(--clr-primary); 
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+}
+.Filter-option{
+    width: 100%;
+    /* max-width: 200px; */
+    position: absolute;
+    top: calc(100% + 10px);
+    background-color: var(--clr-primary);
+    /* padding:1rem 1.2rem; */
+}
+.Filter-option a{
+    display: inline-block;
+    width: 100%;
+    padding:0.2rem 1.2rem;
+    margin-block:0.25rem;
+    &:hover{
+        background-color: var(--clr-accent);
+        cursor: pointer;
+    }
+}
+
+.hidden{
+    display: none;
+}
+/* country container styling */
+
+.countries-card-container{ 
+    --card-width: 210px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-width) , 1fr));
+    gap: min( 2em, 40px); 
+}
+.country-card{
+    font-size: var(--fs-300);
+    width: var(--card-width);
+    background-color: var(--clr-primary);
+    justify-self: center;
+    border-radius: 0.5rem;
+    overflow: hidden;    
+    transition: scale 200ms ease-in-out;
+}
+.country-card:hover{
+    scale:1.05;
+    background-color: var(--clr-secondary);
+}
+
+.country-info{
+    padding: 1em 1em min(2.2em , 30px);
+}
+.country-info>*{
+    margin-bottom: 0.8em;
+}
+.Name{
+    color: var(--clr-text);
+}
+
+
+/* **************************country.html style sheet***************************** */
+
+/* for country page */
+
+
+.back-button{
+    font-size: var(--fs-300);
+    background-color: var(--clr-accent);
+    max-width: 80px;
+    justify-content: space-around;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.7em 1.4em;
+    border-radius: 0.8em;
+    margin-block: 3em;
+    cursor: pointer;
+}
+.back-button:hover{
+    filter: contrast(150%);
+}
+.country-container{
+    background-color: var(--clr-primary); 
+    margin-bottom: 2rem;
+}
+.country-container{  
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    gap: 2rem;
+    border-radius: 1rem;
+}
+
+.img-container{
+    width: clamp(250px , 50% , 400px);
+    padding-top:2rem;
+    text-align: center;
+    flex-shrink: 0.3;
+    align-self: center;
+}
+
+
+.country-info-text{
+    font-size: var(--fs-300);
+    padding: 2rem 1rem;
+}
+.country-info-text>*{
+    margin-bottom: 1em;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.info *{
+    margin-bottom: 0.8em;
+}
+
+
+.Border-countries-container>*{   
+    margin-bottom: 1em;
+}
+.Border-countries-container>a{
+    display: inline-block;
+    margin-left: 1.1em;
+    background-color:var(--clr-accent);
+    opacity: 0.85;
+    padding: 0.15em 1em;
+    border-radius: 0.3em;
+    &:hover{
+       opacity: 1; 
+       filter: brightness(120%);
+    }
+}
+
+@media(min-width:500px){
+    .info{
+        flex-direction: row;
+        gap: 4rem;
+    }   
+}
+@media(min-width:800px){
+    .country-container{  
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        border-radius: 1rem;
+    }
+    .img-container{
+        align-self: flex-start;
+    }
+    .country-info-text{
+        padding: 2rem 1rem;
+    }
+}
+
+
